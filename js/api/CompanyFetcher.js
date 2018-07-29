@@ -27,6 +27,16 @@ class CompanyFetcher {
             throw new Error(err);
         }
     }
+
+    async byId(id){
+        try{
+            const fetching = await fetch(`${this.url}${this.token}`);
+            const data = await fetching.json();
+            return data.filter(d => d.companyId = id);
+        }
+    }
+
+
 }
 
 // this is the instance of CompanyFetcher
